@@ -1,8 +1,7 @@
 import React from 'react';
-// ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
@@ -31,16 +30,51 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      <div className="graphs-section">
+        <div className="BarChart-container">
+          <img
+            src={GrantRatesByOfficeImg}
+            alt="Bar Chart"
+            className="BarChart-img"
+          />
+          <p>Search Grant Rates By Office</p>
+        </div>
+        <div className="BarChart-container">
+          <img
+            src={GrantRatesByNationalityImg}
+            alt="Pie Chart"
+            className="PieChart-img"
+          />
+          <p>Search Grant Rates By Nationality</p>
+        </div>
+        <div className="BarChart-container">
+          <img
+            src={GrantRatesOverTimeImg}
+            alt="Line Chart"
+            className="LineChart-img"
+          />
+          <p>Search Grant Rates Over Time</p>
+        </div>
+      </div>
+
       <div className="view-more-data-btn-container">
         <Button
+          className="View-more-btn"
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
           onClick={() => history.push('/graphs')}
         >
           View the Data
         </Button>
+        <div className="Download-data-btn">
+          <Button
+            className="Download-data-btn-inner"
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          >
+            Download the Data
+          </Button>
+        </div>
       </div>
 
       <div className="middle-section">
@@ -60,8 +94,44 @@ function RenderLandingPage(props) {
         </div>
       </div>
       <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
+        <div className="bottom-section">
+          <div className="bottom-section-title">
+            <h1>Systemic Diparity Insights</h1>
+          </div>
+          <div className="bottom-section-stats-container">
+            <div className="bottom-section-stats-1">
+              <h2>36%</h2>
+              <h3>
+                By the end of the Trump administration, the average aslyum
+                office grant rate had fallen 36 percent from an average of 44
+                percent in fiscal year 2016 to 28 percent in fiscal year 2020.
+              </h3>
+            </div>
+            <div className="bottom-section-stats-2">
+              <h2>5%</h2>
+              <h3>
+                The New York asylum office grate rate dropped to 5 percent in
+                fiscal year 2020.
+              </h3>
+            </div>
+            <div className="bottom-section-stats-3">
+              <h2>6x Lower</h2>
+              <h3>
+                Between fiscal year 2017 and 2020, the New York asylum office's
+                average grant rate was six times lower than the San Francisco
+                aslyum office.
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div className="Read-more-btn">
+          <Button
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          >
+            Read More
+          </Button>
+        </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
