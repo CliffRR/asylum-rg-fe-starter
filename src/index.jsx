@@ -13,13 +13,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
-import { ProfilePage } from './components/pages/Profile';
+import ProfileContainer from './components/pages/Profile/ProfilePageContainer.jsx';
 import LoadingComponent from './components/common/LoadingComponent';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
-
-// import { TablePage } from './components/pages/Table';
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
@@ -70,27 +68,25 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
-        <Route path="/profile-page" component={ProfilePage} />
+        <Route path="/profile-page" component={ProfileContainer} />
         <Route component={NotFoundPage} />
       </Switch>
-      <div className="footer-section">
-        <Footer
-          style={{
-            backgroundColor: primary_accent_color,
-            color: '#E2F0F7',
-          }}
-        >
-          <FooterContent />
-        </Footer>
-        <Footer
-          style={{
-            backgroundColor: primary_accent_color,
-            padding: 0,
-          }}
-        >
-          <SubFooter />
-        </Footer>
-      </div>
+      <Footer
+        style={{
+          backgroundColor: primary_accent_color,
+          color: '#E2F0F7',
+        }}
+      >
+        <FooterContent />
+      </Footer>
+      <Footer
+        style={{
+          backgroundColor: primary_accent_color,
+          padding: 0,
+        }}
+      >
+        <SubFooter />
+      </Footer>
     </Layout>
   );
 }

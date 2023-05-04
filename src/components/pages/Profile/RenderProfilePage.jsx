@@ -1,13 +1,14 @@
 import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import '../../../styles/RenderProfilePage.less';
+import LoadingComponent from '../../common/LoadingComponent';
 
-const Profile = () => {
+const RenderProfilePage = () => {
   const { user } = useAuth0();
-  const { name, picture, email, updated_at, email_verified } = user;
+  const { picture, email, updated_at, email_verified } = user;
 
   return (
-    <div className="profile-container">
+    <div className="profile-container" id="mid-section">
       <div className="name-text">
         <h2>Profile Info:</h2>
       </div>
@@ -27,4 +28,6 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default withAuthenticationRequired(RenderProfilePage, {
+  onRedirecting: () => <LoadingComponent />,
+});

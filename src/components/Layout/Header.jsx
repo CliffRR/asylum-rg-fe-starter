@@ -53,11 +53,9 @@ function HeaderContent() {
           Graphs
         </Link>
 
-        {isAuthenticated ? (
-          <Link to="/profile-page" style={{ color: '#E2F0F7' }}>
-            Profile Page
-          </Link>
-        ) : null}
+        <Link to="/profile-page" style={{ color: '#E2F0F7' }}>
+          Profile Page
+        </Link>
       </div>
       <div className="btn-container">
         <AuthenticationButton />
